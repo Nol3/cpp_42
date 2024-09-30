@@ -6,12 +6,12 @@
 #    By: alcarden <alcarden@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/30 12:59:49 by alcarden          #+#    #+#              #
-#    Updated: 2024/09/30 16:09:47 by alcarden         ###   ########.fr        #
+#    Updated: 2024/09/30 16:51:39 by alcarden         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
-FILES = src/
+NAME = phonebook
+FILES = src/phonebook.cpp src/phonebook.hpp 
 OBJS = $(FILES:.cpp=.o)
 GREEN=\033[0;32m
 RED=\033[0;31m
