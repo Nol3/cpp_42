@@ -27,7 +27,6 @@ class Contact
 		std::string darkest_secret;
 		void Create(void);
 		~Contact(void);
-};
 
 class Phonebook
 {
