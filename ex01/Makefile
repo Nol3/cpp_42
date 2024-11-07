@@ -6,12 +6,13 @@
 #    By: alcarden <alcarden@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/30 12:59:49 by alcarden          #+#    #+#              #
-#    Updated: 2024/09/30 16:51:39 by alcarden         ###   ########.fr        #
+#    Updated: 2024/11/07 13:47:00 by alcarden         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
-FILES = src/phonebook.cpp src/phonebook.hpp 
+SRC_DIR = src
+FILES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJS = $(FILES:.cpp=.o)
 GREEN=\033[0;32m
 RED=\033[0;31m
@@ -22,7 +23,7 @@ $(NAME): $(OBJS)
 	@echo "$(GREEN) Program compiled! $(END)"
 
 $(OBJS): $(FILES)
-	@c++ -Wall -Wextra -Werror -c $< -o $@
+	@c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 	@echo "$(GREEN) Objects compiled! $(END)"
 
 fclean:
