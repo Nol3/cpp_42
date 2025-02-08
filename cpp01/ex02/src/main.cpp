@@ -5,23 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcarden <alcarden@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 16:01:17 by alcarden          #+#    #+#             */
-/*   Updated: 2025/02/08 16:01:18 by alcarden         ###   ########.fr       */
+/*   Created: 2025/02/08 16:08:55 by alcarden          #+#    #+#             */
+/*   Updated: 2025/02/08 16:09:04 by alcarden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-int main() {
-    // Crear zombie en el heap (memoria dinámica)
-    Zombie* heapZombie = newZombie("Heap Zombie");
-    heapZombie->announce();
+int main(void)
+{
+	std::string str = "HI THIS IS BRAIN";
+	std::string *strPTR = &str;
+	std::string &strREF = str;
 
-    // Crear zombie en el stack (memoria estática)
-    randomChump("Stack Zombie");
-
-    // Liberar la memoria del zombie del heap
-    delete heapZombie;
-
-    return 0;
+	std::cout << "String Memory Address:	  " << &str << std::endl;
+	std::cout << "StringPTR Memory Address: " << strPTR << std::endl;
+	std::cout << "StringREF Memory Address: " << &strREF << std::endl;
+	std::cout << "String Value:		" << str << std::endl;
+	std::cout << "StringPTR Value:	" << *strPTR << std::endl;
+	std::cout << "StringREF Value:	" << strREF << std::endl;
+	return (0);
 }

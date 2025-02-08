@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcarden <alcarden@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 16:01:22 by alcarden          #+#    #+#             */
-/*   Updated: 2025/02/08 16:01:23 by alcarden         ###   ########.fr       */
+/*   Created: 2025/02/08 16:22:29 by alcarden          #+#    #+#             */
+/*   Updated: 2025/02/08 16:22:39 by alcarden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef REPLACE_HPP
+# define REPLACE_HPP
 
-Zombie::Zombie(std::string name) : name(name) {
-}
+#include <iostream>
+#include <fstream>
+#include <string>
 
-Zombie::~Zombie() {
-    std::cout << this->name << " is destroyed" << std::endl;
-}
-
-void Zombie::announce(void) {
-    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+#endif

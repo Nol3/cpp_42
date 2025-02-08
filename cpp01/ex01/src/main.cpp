@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcarden <alcarden@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 16:01:22 by alcarden          #+#    #+#             */
-/*   Updated: 2025/02/08 16:01:23 by alcarden         ###   ########.fr       */
+/*   Created: 2025/02/08 16:04:22 by alcarden          #+#    #+#             */
+/*   Updated: 2025/02/08 16:06:59 by alcarden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "zombie.hpp"
 
-Zombie::Zombie(std::string name) : name(name) {
-}
+int main(void)
+{
+	int N;
 
-Zombie::~Zombie() {
-    std::cout << this->name << " is destroyed" << std::endl;
-}
+	std::cout << "Enter the number of zombies: ";
+	std::cin >> N;
 
-void Zombie::announce(void) {
-    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	Zombie *zombie = zombieHorde(N, "José Manuel");
+
+	for (int i = 0; i < N; i++)
+		zombie[i].announce();
+
+	for (int i = 0; i < N; i++)
+		zombie[i].~Zombie();
 }
