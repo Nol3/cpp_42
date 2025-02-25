@@ -133,6 +133,16 @@ Fixed & Fixed::operator -- (void)
     return (*this);
 }
 
+Fixed & Fixed::operator++(void) {
+	_value += 1; // Incrementar por el valor más pequeño representable
+	return *this;
+}
+
+Fixed & Fixed::operator--(void) {
+	_value -= 1; // Decrementar por el valor más pequeño representable
+	return *this;
+}
+
 Fixed Fixed::operator ++ (int)
 {
     Fixed tmp(*this);
