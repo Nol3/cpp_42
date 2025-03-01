@@ -6,7 +6,7 @@
 /*   By: alcarden <alcarden@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:55:36 by alcarden          #+#    #+#             */
-/*   Updated: 2025/03/01 13:52:56 by alcarden         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:56:44 by alcarden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef std::string str;
 
 class ClapTrap
 {
-    private:
+    protected:
         str _name;
         int _hitPoints;
         int _energyPoints;

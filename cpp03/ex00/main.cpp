@@ -2,7 +2,7 @@
 
 int main()
 {
-    ClapTrap claptrap("Claptrap");
+    ClapTrap claptrap("Cyndaquil");
 
     claptrap.attack("Lilith");
     // claptrap.attack("Lilith");
