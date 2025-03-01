@@ -6,7 +6,7 @@
 /*   By: alcarden <alcarden@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:45:10 by alcarden          #+#    #+#             */
-/*   Updated: 2025/02/06 13:45:12 by alcarden         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:09:57 by alcarden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,75 +71,63 @@ int Fixed::toInt(void) const
     return (_value >> _fractionalBits);
 }
 
-bool Fixed::operator > (const Fixed &fixed)
+bool Fixed::operator > (const Fixed &fixed) const
 {
     return (_value > fixed.getRawBits());
 }
 
-bool Fixed::operator < (const Fixed &fixed)
+bool Fixed::operator < (const Fixed &fixed) const
 {
     return (_value < fixed.getRawBits());
 }
 
-bool Fixed::operator >= (const Fixed &fixed)
+bool Fixed::operator >= (const Fixed &fixed) const
 {
     return (_value >= fixed.getRawBits());
 }
 
-bool Fixed::operator <= (const Fixed &fixed)
+bool Fixed::operator <= (const Fixed &fixed) const
 {
     return (_value <= fixed.getRawBits());
 }
 
-bool Fixed::operator == (const Fixed &fixed)
+bool Fixed::operator == (const Fixed &fixed) const
 {
     return (_value == fixed.getRawBits());
 }
 
-bool Fixed::operator != (const Fixed &fixed)
+bool Fixed::operator != (const Fixed &fixed) const
 {
     return (_value != fixed.getRawBits());
 }
 
-Fixed Fixed::operator + (const Fixed &fixed)
+Fixed Fixed::operator + (const Fixed &fixed) const 
 {
     return (Fixed(toFloat() + fixed.toFloat()));
 }
 
-Fixed Fixed::operator - (const Fixed &fixed)
+Fixed Fixed::operator - (const Fixed &fixed) const
 {
     return (Fixed(toFloat() - fixed.toFloat()));
 }
 
-Fixed Fixed::operator * (const Fixed &fixed)
+Fixed Fixed::operator * (const Fixed &fixed) const
 {
     return (Fixed(toFloat() * fixed.toFloat()));
 }
 
-Fixed Fixed::operator / (const Fixed &fixed)
+Fixed Fixed::operator / (const Fixed &fixed) const
 {
     return (Fixed(toFloat() / fixed.toFloat()));
 }
 
-Fixed & Fixed::operator ++ (void)
-{
-    _value++;
-    return (*this);
-}
-
-Fixed & Fixed::operator -- (void)
-{
-    _value--;
-    return (*this);
-}
-
 Fixed & Fixed::operator++(void) {
-	_value += 1; // Incrementar por el valor más pequeño representable
+	_value += 1;
 	return *this;
 }
 
 Fixed & Fixed::operator--(void) {
-	_value -= 1; // Decrementar por el valor más pequeño representable
+	_value -= 1;
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: alcarden <alcarden@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:45:33 by alcarden          #+#    #+#             */
-/*   Updated: 2025/02/06 13:45:34 by alcarden         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:08:48 by alcarden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ class Fixed
 
         Fixed & operator = (const Fixed &fixed);
 
-        bool operator > (const Fixed &fixed);
-        bool operator < (const Fixed &fixed);
-        bool operator >= (const Fixed &fixed);
-        bool operator <= (const Fixed &fixed);
-        bool operator == (const Fixed &fixed);
-        bool operator != (const Fixed &fixed);
+        bool operator > (const Fixed &fixed)const;
+        bool operator < (const Fixed &fixed)const;
+        bool operator >= (const Fixed &fixed)const;
+        bool operator <= (const Fixed &fixed)const;
+        bool operator == (const Fixed &fixed)const;
+        bool operator != (const Fixed &fixed)const;
 
-        Fixed operator + (const Fixed &fixed);
-        Fixed operator - (const Fixed &fixed);
-        Fixed operator * (const Fixed &fixed);
-        Fixed operator / (const Fixed &fixed);
+        Fixed operator + (const Fixed &fixed)const ;
+        Fixed operator - (const Fixed &fixed)const;
+        Fixed operator * (const Fixed &fixed)const;
+        Fixed operator / (const Fixed &fixed)const;
         Fixed & operator ++ (void);
         Fixed & operator -- (void);
         Fixed operator ++ (int);
