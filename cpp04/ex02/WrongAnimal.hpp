@@ -6,7 +6,7 @@
 /*   By: alcarden <alcarden@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 15:14:37 by alcarden          #+#    #+#             */
-/*   Updated: 2025/03/01 15:25:29 by alcarden         ###   ########.fr       */
+/*   Updated: 2025/03/02 16:43:40 by alcarden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
     WrongAnimal &operator=(const WrongAnimal &rhs);
 
     std::string getType() const;
-    void makeSound() const; // Note: not virtual!
+    void makeSound() const;
 };
 
 #endif

@@ -6,21 +6,21 @@
 /*   By: alcarden <alcarden@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 15:14:19 by alcarden          #+#    #+#             */
-/*   Updated: 2025/03/01 18:01:50 by alcarden         ###   ########.fr       */
+/*   Updated: 2025/03/02 16:43:40 by alcarden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include <iostream>
 
-Cat::Cat() {
+Cat::Cat() : AAnimal() {
     this->type = "Cat";
     this->brain = new Brain();
-    std::cout << "Cat constructor called" << std::endl;
+    std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &other) : Animal(other) {
-    this->brain = new Brain(*other.brain);
+Cat::Cat(const Cat &src) : AAnimal(src) {
+    this->brain = new Brain(*src.brain);
     std::cout << "Cat copy constructor called" << std::endl;
 }
 
@@ -29,11 +29,11 @@ Cat::~Cat() {
     std::cout << "Cat destructor called" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &other) {
-    if (this != &other) {
-        Animal::operator=(other);
+Cat &Cat::operator=(const Cat &rhs) {
+    if (this != &rhs) {
+        AAnimal::operator=(rhs);
         delete this->brain;
-        this->brain = new Brain(*other.brain);
+        this->brain = new Brain(*rhs.brain);
     }
     return *this;
 }
