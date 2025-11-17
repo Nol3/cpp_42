@@ -1,0 +1,239 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                   C++ MODULE 06 - TYPE CASTS PROJECT                        ║
+║                          ✓ INICIALIZED SUCCESSFULLY                         ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 📊 PROJECT STATUS                                                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+✓ COMPLETED & WORKING:
+  ✓ Ejercicio 01: Serializer (reinterpret_cast)    [FULLY IMPLEMENTED]
+  ✓ Ejercicio 02: Identify (dynamic_cast)          [FULLY IMPLEMENTED]
+  ✓ Documentation                                   [COMPLETE]
+
+⏳ SKELETON READY (Implementation Needed):
+  ~ Ejercicio 00: ScalarConverter (static_cast)    [SKELETON CODE READY]
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 📁 FOLDER STRUCTURE                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+cpp06/
+├── README.md                                      [Project overview]
+├── GUIDE.md                                       [Type casts explained]
+├── EX00_GUIDE.md                                  [Exercise 00 detailed guide]
+├── EX01_GUIDE.md                                  [Exercise 01 detailed guide]
+├── EX02_GUIDE.md                                  [Exercise 02 detailed guide]
+│
+├── ex00/                                          [Scalar type converter]
+│   ├── Makefile
+│   ├── main.cpp
+│   ├── ScalarConverter.hpp
+│   └── ScalarConverter.cpp                        [TODO: Implement convert()]
+│
+├── ex01/                                          [Pointer serialization]
+│   ├── Makefile
+│   ├── main.cpp
+│   ├── Data.hpp
+│   ├── Serializer.hpp
+│   ├── Serializer.cpp                             [✓ COMPLETE]
+│   └── serialize                                  [✓ EXECUTABLE]
+│
+└── ex02/                                          [Type identification]
+    ├── Makefile
+    ├── main.cpp
+    ├── Base.{hpp,cpp}
+    ├── A.{hpp,cpp}
+    ├── B.{hpp,cpp}
+    ├── C.{hpp,cpp}                                [✓ ALL COMPLETE]
+    └── identify                                   [✓ EXECUTABLE]
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🎯 THE 4 TYPE CASTS IN C++                                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. static_cast<type>(value)
+   ├─ Usage: Safe conversion between related types
+   ├─ Example: int → double, char → int, etc.
+   └─ Exercise 00: Convert scalar types
+   
+2. dynamic_cast<type>(value)
+   ├─ Usage: RTTI in class hierarchies (requires virtual destructor)
+   ├─ Returns: nullptr if fails (pointers), throws bad_cast (references)
+   └─ Exercise 02: Identify actual type of object
+   
+3. reinterpret_cast<type>(value)
+   ├─ Usage: Low-level byte reinterpretation
+   ├─ Danger: No safety checks - programmer responsibility
+   └─ Exercise 01: Serialize pointers to integers
+   
+4. const_cast<type>(value)
+   ├─ Usage: Add/remove const qualifier
+   └─ Exercise: None (not used in this module)
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ✅ EXERCISE SUMMARY                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+EXERCISE 00: ScalarConverter
+─────────────────────────────
+├─ Status: Skeleton ready, needs implementation
+├─ Cast: static_cast<>
+├─ Goal: Convert string to char, int, float, double
+├─ Input Detection:
+│   ├─ Char: 'a', 'c' (single quoted character)
+│   ├─ Int: 42, -100 (no decimal point, no 'f')
+│   ├─ Float: 3.14f, -2.5f, nanf, ±inff
+│   └─ Double: 3.14, -2.5, nan, ±inf
+├─ Special Cases:
+│   ├─ NaN → char: impossible, int: impossible, float: nanf, double: nan
+│   ├─ Infinity → char: impossible, int: impossible
+│   └─ Non-displayable chars → "Non displayable" or "impossible"
+└─ Files: ex00/{main.cpp, ScalarConverter.hpp, ScalarConverter.cpp, Makefile}
+
+EXERCISE 01: Serializer ✓
+─────────────────────────
+├─ Status: FULLY IMPLEMENTED AND WORKING
+├─ Cast: reinterpret_cast<>
+├─ Goal: Convert pointer ↔ uintptr_t
+├─ Key Point: Deserialized pointer must equal original pointer
+├─ Implementation:
+│   ├─ serialize(Data*) → uintptr_t
+│   ├─ deserialize(uintptr_t) → Data*
+│   └─ Data struct with actual members
+└─ Test Output: ✓ Pointers are equal!
+
+EXERCISE 02: Identify ✓
+──────────────────────
+├─ Status: FULLY IMPLEMENTED AND WORKING
+├─ Cast: dynamic_cast<>
+├─ Goal: Identify actual type in class hierarchy
+├─ Hierarchy: Base (virtual destructor) → A, B, C
+├─ Functions:
+│   ├─ Base* generate() - random A, B, or C
+│   ├─ void identify(Base*) - identify with pointer
+│   └─ void identify(Base&) - identify with reference
+└─ Test Output: Random A, B, or C identification
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🚀 QUICK START                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. READ DOCUMENTATION:
+   $ cat cpp06/README.md
+   $ cat cpp06/GUIDE.md
+   $ cat cpp06/EX00_GUIDE.md    (for implementation details)
+
+2. TEST WORKING EXERCISES:
+   $ cd cpp06/ex01 && make && ./serialize
+   $ cd ../ex02 && make && ./identify
+
+3. IMPLEMENT EXERCISE 00:
+   Follow the detailed guide in: cpp06/EX00_GUIDE.md
+   Key steps:
+   ├─ Add type detection functions
+   ├─ Add string parsing (strtol, strtof, strtod)
+   ├─ Add static_cast conversions
+   └─ Add validation and formatting
+
+4. COMPILE WITH STRICT FLAGS:
+   c++ -Wall -Wextra -Werror -std=c++98 -o convert *.cpp
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 📚 DOCUMENTATION FILES                                                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+README.md          Main project overview and structure
+GUIDE.md           Detailed explanation of 4 type casts
+EX00_GUIDE.md      Step-by-step guide for ScalarConverter
+EX01_GUIDE.md      Step-by-step guide for Serializer
+EX02_GUIDE.md      Step-by-step guide for Identify
+
+📖 READING ORDER:
+  1. README.md      (overview)
+  2. GUIDE.md       (type casts concepts)
+  3. EX0X_GUIDE.md  (specific exercise)
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ⚙️ COMPILATION & EXECUTION                                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+EXERCISE 00:
+  $ cd cpp06/ex00
+  $ make
+  $ ./convert 42                    → int conversion
+  $ ./convert 42.0f                 → float conversion
+  $ ./convert nan                   → special value
+  $ make clean / make fclean
+
+EXERCISE 01:
+  $ cd cpp06/ex01
+  $ make
+  $ ./serialize                     → Test pointer serialization
+  $ make clean / make fclean
+
+EXERCISE 02:
+  $ cd cpp06/ex02
+  $ make
+  $ ./identify                      → Test type identification
+  $ make clean / make fclean
+
+COMPILE ALL:
+  $ for i in 0 1 2; do cd cpp06/ex0$i && make && cd ../..; done
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ⚠️  IMPORTANT RULES                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+✅ ALLOWED:
+   ✓ C++98 standard features
+   ✓ Standard library headers
+   ✓ Multiple files/headers
+   ✓ Helper functions
+
+❌ FORBIDDEN:
+   ✗ C++11 and newer (just C++98)
+   ✗ Boost libraries
+   ✗ printf(), malloc(), free()
+   ✗ using namespace std
+   ✗ friend keyword
+   ✗ STL Containers (vector, list, map) - until Module 08
+   ✗ std::typeinfo - Exercise 02
+
+🚫 CRITICAL:
+   ✗ Memory leaks (use delete for new)
+   ✗ Double inclusion (use include guards)
+   ✗ Classes must be Orthodox Canonical Form
+   ✗ No implementation in headers (except templates)
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🎓 LEARNING OBJECTIVES                                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+After completing this module, you will understand:
+
+✓ Type casting in C++ and when to use each type
+✓ Static polymorphism (static_cast for type conversions)
+✓ Dynamic polymorphism (dynamic_cast with RTTI)
+✓ Low-level type reinterpretation (reinterpret_cast)
+✓ Class hierarchies and virtual functions
+✓ Memory management with new/delete
+✓ String parsing and numeric conversions
+✓ Proper C++ style and conventions
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 📝 NEXT STEPS                                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+1. ✓ Understand type casts → Read GUIDE.md
+2. ✓ Review working examples → Run ex01 and ex02
+3. ⏳ IMPLEMENT EX00 → Follow EX00_GUIDE.md step-by-step
+4. ✓ Test all exercises with examples
+5. ✓ Verify compilation with strict flags
+6. ✓ Clean and prepare for submission
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                    PROJECT READY FOR IMPLEMENTATION                         ║
+║                         Happy coding! 🚀                                    ║
+╚════════════════════════════════════════════════════════════════════════════╝

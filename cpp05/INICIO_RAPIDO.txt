@@ -1,0 +1,212 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║         C++ MODULE 05 - INICIO RÁPIDO - RESUMEN EJECUTIVO           ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+✅ ¿QUÉ SE HA COMPLETADO?
+
+Ex00 - Bureaucrat:
+   ✓ Clase con excepciones personalizadas
+   ✓ Validación de grado (1-150)
+   ✓ Métodos incrementGrade() y decrementGrade()
+   ✓ 7 pruebas ejecutadas exitosamente
+
+Ex01 - Form:
+   ✓ Clase Form con 4 atributos (const y no const)
+   ✓ Método beSigned() para validación
+   ✓ Método signForm() en Bureaucrat
+   ✓ Manejo elegante de excepciones
+   ✓ 6 pruebas ejecutadas exitosamente
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 ESTRUCTURA CREADA
+
+/home/alcarden/Desktop/CPP/cpp05/
+├── ex00/
+│   ├── Bureaucrat.hpp
+│   ├── Bureaucrat.cpp
+│   ├── main.cpp
+│   ├── Makefile
+│   └── bureaucrat (ejecutable)
+│
+├── ex01/
+│   ├── Bureaucrat.hpp
+│   ├── Bureaucrat.cpp
+│   ├── Form.hpp
+│   ├── Form.cpp
+│   ├── main.cpp
+│   ├── Makefile
+│   └── form (ejecutable)
+│
+├── ex02/ (VACÍO - SIGUIENTE PASO)
+├── ex03/ (VACÍO - SIGUIENTE PASO)
+├── README.md (Hoja de ruta completa)
+├── PROGRESS.md (Estado del proyecto)
+└── EXPLICACION.md (Tutorial detallado)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 CONCEPTOS CLAVE APRENDIDOS
+
+1. EXCEPCIONES PERSONALIZADAS
+   - Heredan de std::exception
+   - Implementan método what() const throw()
+   - Se lanzan con: throw NombreException()
+   - Se capturan con: catch (std::exception& e)
+
+2. ATRIBUTOS CONST
+   - Se asignan en la lista de inicialización
+   - No pueden modificarse después
+   - Ejemplo: const std::string _name;
+
+3. FORWARD DECLARATIONS
+   - Declara clase sin incluir archivo completo
+   - Evita inclusiones circulares
+   - Ejemplo: class Form;
+
+4. MANEJO DE EXCEPCIONES
+   - try { } catch (std::exception& e) { }
+   - Permite código más limpio
+   - Mensaje descriptivo con e.what()
+
+5. OPERADOR <<
+   - std::ostream& operator<<(std::ostream& out, const Class& obj)
+   - Permite: std::cout << objeto << std::endl;
+   - Retorna: return out;
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 CÓMO USAR LO QUE SE HA CREADO
+
+1. Compilar ex00:
+   $ cd /home/alcarden/Desktop/CPP/cpp05/ex00
+   $ make clean && make
+   $ ./bureaucrat
+
+2. Compilar ex01:
+   $ cd /home/alcarden/Desktop/CPP/cpp05/ex01
+   $ make clean && make
+   $ ./form
+
+3. Estudiar el código:
+   - Lee Bureaucrat.hpp y Bureaucrat.cpp
+   - Comprende cómo funcionan las excepciones
+   - Copia el patrón para los próximos ejercicios
+
+4. Expandir para ex02:
+   - Copia Form como AForm
+   - Agrega método virtual puro execute()
+   - Crea ShrubberyCreationForm, RobotomyRequestForm, PresidentialPardonForm
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 PUNTOS IMPORTANTES PARA RECORDAR
+
+A. Grados en Bureaucrat y Form:
+   • Grado 1 = MEJOR (máximo poder) ← Número menor = mejor
+   • Grado 150 = PEOR (mínimo poder) ← Número mayor = peor
+   
+   Ejemplo:
+   - Bureaucrat alice(1)  → Grade 1 (la mejor)
+   - Bureaucrat bob(150)  → Grade 150 (la peor)
+   
+   Si form requiere grado 75:
+   - Alice (grado 1) SÍ puede firmar (1 < 75) ✅
+   - Bob (grado 150) NO puede firmar (150 > 75) ❌
+
+B. Compilación:
+   c++ -Wall -Wextra -Werror -std=c++98
+   ↑ Estas flags son OBLIGATORIAS
+   ↑ Incluida -std=c++98 para compatibilidad
+
+C. Reglas importantes:
+   • NO usar STL (vector, map, etc) en ex05
+   • NO usar printf, malloc, free
+   • NO usar namespace std;
+   • Usar new/delete en lugar de malloc/free
+   • Usar iostream en lugar de cstdio
+
+D. Orthodox Canonical Form:
+   Toda clase DEBE tener:
+   - Constructor por defecto (privado si no se necesita)
+   - Constructor copia (privado si no se necesita)
+   - Operador asignación (privado si no se necesita)
+   - Destructor
+   
+   Las excepciones NO necesitan esto.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 ARCHIVOS DE REFERENCIA
+
+README.md
+└─ Hoja de ruta completa con todos los detalles
+
+EXPLICACION.md
+└─ Tutorial paso a paso con ejemplos de código
+
+PROGRESS.md
+└─ Estado del proyecto (checklist y progreso)
+
+ex00/main.cpp
+└─ 7 casos de prueba bien documentados
+
+ex01/main.cpp
+└─ 6 casos de prueba con diferentes escenarios
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ PREGUNTAS FRECUENTES
+
+P: ¿Por qué grado 1 es mejor que 150?
+R: Es una convención del proyecto. Menor número = más autoridad.
+
+P: ¿Qué es "throw()"?
+R: Especifica que el método no lanza excepciones (C++98).
+
+P: ¿Debo incluir ".cpp" en los .hpp?
+R: NO. Incluye otros .hpp si los necesitas.
+
+P: ¿Qué es "const" en método?
+R: El método no puede modificar miembros del objeto.
+
+P: ¿Cómo evito errores de compilación?
+R: Lee los mensajes de error, y compila frecuentemente.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎓 PRÓXIMOS EJERCICIOS
+
+Ejercicio 02: Clases Abstractas
+├─ Convertir Form → AForm
+├─ Agregar método virtual puro: execute()
+├─ Crear 3 subclases concretas
+└─ Implementar executeForm() en Bureaucrat
+
+Ejercicio 03: Factory Pattern
+├─ Crear clase Intern
+├─ Método makeForm(name, target)
+├─ Evitar if/else excesivos
+└─ Crear objetos dinámicamente
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ RESUMEN
+
+Has aprendido a:
+✓ Crear excepciones personalizadas
+✓ Validar datos en constructores
+✓ Implementar métodos con cambios de estado
+✓ Manejar excepciones elegantemente
+✓ Trabajar con atributos const
+✓ Crear relaciones entre clases
+
+Estás 50% del camino. Los siguientes pasos:
+→ Polimorfismo (ex02)
+→ Factory Pattern (ex03)
+
+¡Sigue adelante! 💪
+
+═══════════════════════════════════════════════════════════════════════
+Creado: 16 Nov 2025 | Proyecto: cpp_42 | Branch: main
+═══════════════════════════════════════════════════════════════════════
